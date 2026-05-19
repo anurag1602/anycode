@@ -1,8 +1,8 @@
 const month = document.querySelector(".inner-month");
 const fulldate = document.querySelector(".inner-data");
 const datesDiv = document.querySelector(".dates");
-const months = ["January","February","March","April","May","June","July","Auguest","September","October","November","December"];
-const days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 const dateSys = new Date;
 month.innerText = months[dateSys.getMonth()];
 fulldate.innerText = dateSys.toString().slice(0,15);
@@ -38,12 +38,7 @@ function indexBlock(index,element){
 };
 let index;
 function updateIndex(){
-    var firstDay = new Date(dateSys.getFullYear(), dateSys.getMonth(), 1).toString().slice(0,3);
-    days.forEach((day)=>{
-        if(day == firstDay){
-            index=days.indexOf(day);
-        };
-    });
+    index = new Date(dateSys.getFullYear(), dateSys.getMonth(), 1).getDay();
 };
 function execute(){
     updateIndex();
